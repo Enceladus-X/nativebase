@@ -1,10 +1,12 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { MaterialIcons } from '@expo/vector-icons';
+
+
 
 // Import pages
 import LoginPage from "../pages/LoginPage";
 import LoadingPage from "../pages/LoadingPage";
-import ProfileInputPage from "../pages/ProfileInputPage";
 import SettingPage from "../pages/SettingPage";
 import HomePage from "../pages/HomePage";
 import ChatPage from "../pages/Chatpage";
@@ -16,16 +18,18 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
+      screenOptions={{
+        headerStyle:{
+          height: 45,
+        },
+        
+      }}
       >
-        <Stack.Screen name="LoadingPage" component={LoadingPage} />
-        <Stack.Screen name="LoginPage" component={LoginPage} />
-        <Stack.Screen name="ProfileInputPage" component={ProfileInputPage} />
-        <Stack.Screen name="SettingPage" component={SettingPage} />
-        <Stack.Screen name="HomePage" component={HomePage} />
-        <Stack.Screen name="ChatPage" component={ChatPage} />
+        <Stack.Screen name="Loading" component={LoadingPage} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Setting" component={SettingPage} />
+        <Stack.Screen name="Home" component={HomePage} options={{ headerShown: false}} /> 
+        <Stack.Screen name="Chat" component={ChatPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

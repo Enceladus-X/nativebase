@@ -1,14 +1,31 @@
+import { MaterialIcons } from "@expo/vector-icons";
+import {
+  Box,
+  HStack,
+  Icon,
+  IconButton,
+  StatusBar,
+  Text,
+  Button,
+  Menu,
+} from "native-base";
 import React, { useEffect } from "react";
-import { Text, View } from "react-native";
-import ButtonCustom from "../components/ButtonCustom";
+import { View } from "react-native";
+
+const gotoChatPage = () => {
+  navigation.navigate("ChatPage");
+};
 
 function AppBar_Home() {
+  const gotoSettingPage = () => {
+    navigation.navigate("SettingPage");
+  };
   return (
     <>
       <StatusBar bg="#3700B3" barStyle="light-content" />
-      <Box safeAreaTop bg="violet.600" />
+      <Box safeAreaTop bg={"#58af9b"} />
       <HStack
-        bg="violet.800"
+        bg="#58af9b"
         px="1"
         py="3"
         justifyContent="space-between"
@@ -19,7 +36,15 @@ function AppBar_Home() {
         <HStack alignItems="center">
           <IconButton
             icon={
-              <Icon size="sm" as={MaterialIcons} name="menu" color="white" />
+              <Icon
+                size={"md"}
+                as={MaterialIcons}
+                name="menu"
+                color={"white"}
+                onPress={() => {
+                  gotoSettingPage();
+                }}
+              />
             }
           />
           <Text color="white" fontSize="20" fontWeight="bold">
@@ -34,19 +59,14 @@ function AppBar_Home() {
 function HomePage() {
   useEffect(() => {}, []);
 
-  const gotoChatPage = () => {
-    navigation.navigate("ChatPage");
-  };
-
   return (
     <View style={{ flex: 1 }}>
       <AppBar_Home />
-      <ButtonCustom
-        onpress={() => {
-          gotoChatPage();
-        }}
-        title="go to Chat Page"
-      />
+      <View
+        style={{ flex: 1, alignContent: "center", justifyContent: "center" }}
+      >
+        <Button onPress={gotoChatPage}>Chat page</Button>
+      </View>
     </View>
   );
 }

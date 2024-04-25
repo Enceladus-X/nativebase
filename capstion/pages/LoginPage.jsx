@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View, Button, Pressable } from "react-native";
 import ButtonCustom from "../components/ButtonCustom";
-import Header from "../components/header";
+import Header from "../components/Header";
 
 function LoginPage({ navigation }) {
   useEffect(() => {}, []);
