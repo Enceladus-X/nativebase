@@ -12,8 +12,9 @@ import {
   VStack,
   Heading,
   Input,
+  useToast,
 } from "native-base";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Platform, View } from "react-native";
 
 function AppBar_Home({ navigation }) {
@@ -52,8 +53,19 @@ function AppBar_Home({ navigation }) {
 function HomePage({ navigation }) {
   useEffect(() => {}, []);
 
+  const [nickname, setNickname] = useState("");
+  const toast = useToast();
+
   const gotoChatPage = () => {
-    navigation.navigate("Chat");
+    if (nickname === "") {
+      toast.show({
+        title: "Please enter your nickname!",
+        status: "warning", // 여기 수정
+        color: "red",
+      });
+    } else {
+      navigation.navigate("Chat");
+    }
   };
 
   return (
@@ -92,7 +104,13 @@ function HomePage({ navigation }) {
                   padding: 16,
                 }}
               >
-                <Input placeholder="Enter your nickname" mt="10" mb="4" />
+                <Input
+                  placeholder="Enter your nickname"
+                  mt="10"
+                  mb="4"
+                  value={nickname}
+                  onChangeText={(text) => setNickname(text)}
+                />
                 <Button mb="4" onPress={gotoChatPage}>
                   Go To Chat!
                 </Button>
