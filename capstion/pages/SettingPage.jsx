@@ -18,7 +18,7 @@ function SettingPage() {
     return <ScrollView showsVerticalScrollIndicator={false}>
       <VStack space={2.5} mt ="4" px ="8">
         <Heading size ="md" >
-          Theme
+          Settings
         </Heading>
       </VStack>
     </ScrollView>;

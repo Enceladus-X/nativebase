@@ -5,14 +5,14 @@ function LoadingPage({ navigation }) {
   useEffect(() => {}, []);
 
   const gotoHomePage = () => {
-    navigation.navigate("Setting");
+    navigation.navigate("Home");
   };
   return (
     <View style={styles.container}>
       {/* 이미지 추가 */}
       <TouchableOpacity onPress={()=>{gotoHomePage();}}>
         <Image
-          source={require("../assets/images/logo.png")} // 이미지 파일의 경로를 지정합니다.
+          source={require("../assets/images/logoText.png")} // 이미지 파일의 경로를 지정합니다.
           style={styles.image}
         />
       </TouchableOpacity>
