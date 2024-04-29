@@ -84,8 +84,8 @@ function HomePage({ navigation }) {
             >
               <Heading mb="3">Welcome to MATE!</Heading>
               <Text color="muted.400">
-                MATE is a nickname-based chat app. Enter your nickname and press
-                the button to start chatting immediately!
+                MATE is a nickname-based chat app! Enter your nickname and start
+                chatting right away. Everyone is waiting to meet you!
               </Text>
               <View
                 style={{
